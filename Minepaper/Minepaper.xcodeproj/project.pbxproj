@@ -14,6 +14,10 @@
 		7C00460B2ABBBD7B00749299 /* MinepaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00460A2ABBBD7B00749299 /* MinepaperTests.swift */; };
 		7C0046152ABBBD7B00749299 /* MinepaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046142ABBBD7B00749299 /* MinepaperUITests.swift */; };
 		7C0046172ABBBD7B00749299 /* MinepaperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046162ABBBD7B00749299 /* MinepaperUITestsLaunchTests.swift */; };
+		7C0046252ABBC2A100749299 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046242ABBC2A100749299 /* Utilities.swift */; };
+		7C0046272ABBC34800749299 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046262ABBC34800749299 /* Constants.swift */; };
+		7C0046292ABBC39A00749299 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046282ABBC39A00749299 /* Enums.swift */; };
+		7C00462B2ABBC61E00749299 /* UIObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462A2ABBC61E00749299 /* UIObjects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		7C0046102ABBBD7B00749299 /* MinepaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinepaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0046142ABBBD7B00749299 /* MinepaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinepaperUITests.swift; sourceTree = "<group>"; };
 		7C0046162ABBBD7B00749299 /* MinepaperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinepaperUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7C0046242ABBC2A100749299 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		7C0046262ABBC34800749299 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7C0046282ABBC39A00749299 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		7C00462A2ABBC61E00749299 /* UIObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjects.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,7 @@
 		7C0045F82ABBBD7A00749299 /* Minepaper */ = {
 			isa = PBXGroup;
 			children = (
+				7C0046232ABBC28900749299 /* Classes */,
 				7C0045F92ABBBD7A00749299 /* MinepaperApp.swift */,
 				7C0045FB2ABBBD7A00749299 /* ContentView.swift */,
 				7C0045FD2ABBBD7B00749299 /* Assets.xcassets */,
@@ -125,6 +134,17 @@
 				7C0046162ABBBD7B00749299 /* MinepaperUITestsLaunchTests.swift */,
 			);
 			path = MinepaperUITests;
+			sourceTree = "<group>";
+		};
+		7C0046232ABBC28900749299 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7C0046242ABBC2A100749299 /* Utilities.swift */,
+				7C0046262ABBC34800749299 /* Constants.swift */,
+				7C0046282ABBC39A00749299 /* Enums.swift */,
+				7C00462A2ABBC61E00749299 /* UIObjects.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C00462B2ABBC61E00749299 /* UIObjects.swift in Sources */,
+				7C0046252ABBC2A100749299 /* Utilities.swift in Sources */,
 				7C0045FC2ABBBD7A00749299 /* ContentView.swift in Sources */,
+				7C0046292ABBC39A00749299 /* Enums.swift in Sources */,
 				7C0045FA2ABBBD7A00749299 /* MinepaperApp.swift in Sources */,
+				7C0046272ABBC34800749299 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
