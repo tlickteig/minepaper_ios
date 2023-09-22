@@ -18,6 +18,7 @@
 		7C0046272ABBC34800749299 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046262ABBC34800749299 /* Constants.swift */; };
 		7C0046292ABBC39A00749299 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046282ABBC39A00749299 /* Enums.swift */; };
 		7C00462B2ABBC61E00749299 /* UIObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462A2ABBC61E00749299 /* UIObjects.swift */; };
+		7C00462E2ABD090400749299 /* AsyncDownSamplingImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C00462D2ABD090400749299 /* AsyncDownSamplingImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C00462E2ABD090400749299 /* AsyncDownSamplingImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +165,9 @@
 			dependencies = (
 			);
 			name = Minepaper;
+			packageProductDependencies = (
+				7C00462D2ABD090400749299 /* AsyncDownSamplingImage */,
+			);
 			productName = Minepaper;
 			productReference = 7C0045F62ABBBD7A00749299 /* Minepaper.app */;
 			productType = "com.apple.product-type.application";
@@ -235,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 7C0045ED2ABBBD7A00749299;
+			packageReferences = (
+				7C00462C2ABD090400749299 /* XCRemoteSwiftPackageReference "AsyncDownSamplingImage" */,
+			);
 			productRefGroup = 7C0045F72ABBBD7A00749299 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -612,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C00462C2ABD090400749299 /* XCRemoteSwiftPackageReference "AsyncDownSamplingImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fummicc1/AsyncDownSamplingImage?source=post_page-----947c11da66d1--------------------------------";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C00462D2ABD090400749299 /* AsyncDownSamplingImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C00462C2ABD090400749299 /* XCRemoteSwiftPackageReference "AsyncDownSamplingImage" */;
+			productName = AsyncDownSamplingImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C0045EE2ABBBD7A00749299 /* Project object */;
 }
