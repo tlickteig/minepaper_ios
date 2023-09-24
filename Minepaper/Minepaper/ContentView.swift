@@ -25,7 +25,7 @@ struct ContentView: View {
                                 ForEach(loadedImages, id: \.self) { image in
                                     Spacer()
                                     let url = "\(Constants.remoteImagesFolder)/\(image)"
-                                    NavigationLink(destination: WallpaperView()) {
+                                    NavigationLink(destination: WallpaperView(image: image)) {
                                         AsyncDownSamplingImage(url: URL(string: url), downsampleSize: size
                                         ) { image in image
                                                 .resizable()
@@ -96,8 +96,4 @@ struct ContentView: View {
             }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct WallpaperView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+    private var imageName = ""
+    
+    init(image: String) {
+        imageName = image
     }
-}
-
-#Preview {
-    WallpaperView()
+    
+    var body: some View {
+        Text(imageName)
+    }
 }
