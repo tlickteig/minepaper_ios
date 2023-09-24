@@ -19,6 +19,7 @@
 		7C0046292ABBC39A00749299 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046282ABBC39A00749299 /* Enums.swift */; };
 		7C00462B2ABBC61E00749299 /* UIObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462A2ABBC61E00749299 /* UIObjects.swift */; };
 		7C00462E2ABD090400749299 /* AsyncDownSamplingImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C00462D2ABD090400749299 /* AsyncDownSamplingImage */; };
+		7C0046302AC0995C00749299 /* WallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462F2AC0995C00749299 /* WallpaperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7C0046262ABBC34800749299 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7C0046282ABBC39A00749299 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7C00462A2ABBC61E00749299 /* UIObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjects.swift; sourceTree = "<group>"; };
+		7C00462F2AC0995C00749299 /* WallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				7C0045FB2ABBBD7A00749299 /* ContentView.swift */,
 				7C0045FD2ABBBD7B00749299 /* Assets.xcassets */,
 				7C0045FF2ABBBD7B00749299 /* Preview Content */,
+				7C00462F2AC0995C00749299 /* WallpaperView.swift */,
 			);
 			path = Minepaper;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C00462B2ABBC61E00749299 /* UIObjects.swift in Sources */,
+				7C0046302AC0995C00749299 /* WallpaperView.swift in Sources */,
 				7C0046252ABBC2A100749299 /* Utilities.swift in Sources */,
 				7C0045FC2ABBBD7A00749299 /* ContentView.swift in Sources */,
 				7C0046292ABBC39A00749299 /* Enums.swift in Sources */,
