@@ -20,6 +20,7 @@
 		7C00462B2ABBC61E00749299 /* UIObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462A2ABBC61E00749299 /* UIObjects.swift */; };
 		7C00462E2ABD090400749299 /* AsyncDownSamplingImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C00462D2ABD090400749299 /* AsyncDownSamplingImage */; };
 		7C0046302AC0995C00749299 /* WallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462F2AC0995C00749299 /* WallpaperView.swift */; };
+		7C0046332AC12B1400749299 /* ImageShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046322AC12B1400749299 /* ImageShareController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7C0046282ABBC39A00749299 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7C00462A2ABBC61E00749299 /* UIObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjects.swift; sourceTree = "<group>"; };
 		7C00462F2AC0995C00749299 /* WallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperView.swift; sourceTree = "<group>"; };
+		7C0046322AC12B1400749299 /* ImageShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageShareController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		7C0045F82ABBBD7A00749299 /* Minepaper */ = {
 			isa = PBXGroup;
 			children = (
+				7C0046312AC12AFA00749299 /* Controllers */,
 				7C0046232ABBC28900749299 /* Classes */,
 				7C0045F92ABBBD7A00749299 /* MinepaperApp.swift */,
 				7C0045FB2ABBBD7A00749299 /* ContentView.swift */,
@@ -150,6 +153,14 @@
 				7C00462A2ABBC61E00749299 /* UIObjects.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		7C0046312AC12AFA00749299 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C0046322AC12B1400749299 /* ImageShareController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +306,7 @@
 				7C0046292ABBC39A00749299 /* Enums.swift in Sources */,
 				7C0045FA2ABBBD7A00749299 /* MinepaperApp.swift in Sources */,
 				7C0046272ABBC34800749299 /* Constants.swift in Sources */,
+				7C0046332AC12B1400749299 /* ImageShareController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +473,7 @@
 				DEVELOPMENT_TEAM = 2YP3HAP3F2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Minepaper needs to be able to save wallpapers to your camera roll";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -473,6 +486,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tlickteig.minepaper-ios.Minepaper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -490,6 +506,7 @@
 				DEVELOPMENT_TEAM = 2YP3HAP3F2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Minepaper needs to be able to save wallpapers to your camera roll";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -502,6 +519,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tlickteig.minepaper-ios.Minepaper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

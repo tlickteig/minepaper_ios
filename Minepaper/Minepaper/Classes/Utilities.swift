@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Utilities {
     
@@ -53,5 +54,20 @@ struct Utilities {
         }
         
         return output
+    }
+    
+    static func downloadImageFromServer(imageName: String) throws -> UIImage {
+        
+        let url = "\(Constants.remoteImagesFolder)/\(imageName)"
+        var output = UIImage(systemName: "x.circle.fill")
+        
+        if let data = try? Data(contentsOf: URL(string: url)!) {
+            output = UIImage(data: data)
+        }
+        else {
+            throw NetworkError.GeneralError
+        }
+        
+        return output!
     }
 }

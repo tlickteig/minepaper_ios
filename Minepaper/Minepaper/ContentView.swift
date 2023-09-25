@@ -43,6 +43,7 @@ struct ContentView: View {
                                         .cornerRadius(15)
                                         .frame(height: 180)
                                     }
+                                    .frame(width: 1000)
                                     Spacer()
                                 }
                             }
