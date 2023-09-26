@@ -10,6 +10,8 @@ import SwiftUI
 struct WallpaperView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var isShowingShareWindow = false
+    @State private var imageToShare: UIImage?
     private var imageName = ""
     
     init(image: String) {
@@ -34,7 +36,7 @@ struct WallpaperView: View {
                         Button {
                             DispatchQueue.global(qos: .userInitiated).async {
                                 do {
-                                    let image = try Utilities.downloadImageFromServer(imageName: imageName)
+                                    let image: UIImage = try Utilities.downloadImageFromServer(imageName: imageName)
                                     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                                 }
                                 catch {
@@ -49,15 +51,22 @@ struct WallpaperView: View {
                         .padding()
                         
                         Button {
+                            /*DispatchQueue.global(qos: .userInitiated).async {
+                                do {
+                                    let tempImage: Image = try Utilities.downloadImageFromServer(imageName: imageName)
+                                    DispatchQueue.main.sync {
+                                        imageToShare = tempImage
+                                        isShowingShareWindow = true
+                                    }
+                                }
+                                catch {
+                                    
+                                }
+                            }*/
+                            
                             do {
-                                /*let image = try Utilities.downloadImageFromServer(imageName: imageName)
-                                let items = [image]
-                                let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-                                present(ac, animated: true)*/
-                                
-                                let isc = ImageShareController()
-                                let image = try Utilities.downloadImageFromServer(imageName: imageName)
-                                isc.shareImage(image: image)
+                                imageToShare = try Utilities.downloadImageFromServer(imageName: imageName)
+                                isShowingShareWindow = true
                             }
                             catch {
                                 
@@ -66,11 +75,20 @@ struct WallpaperView: View {
                             Label("Share Wallpaper", systemImage: "square.and.arrow.up")
                                 .padding()
                         }
+                        .sheet(isPresented: $isShowingShareWindow) {
+                            ImageShareView(activityItems: [imageToShare!])
+                        }
                         .buttonStyle(.bordered)
                         .padding()
                         
                         Button {
-                            
+                            let loc = "\(Constants.remoteImagesFolder)/\(imageName)"
+                            if let url = URL(string: loc), UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url)
+                            }
+                            else {
+                                
+                            }
                         } label: {
                             Label("Open in Browser", systemImage: "globe")
                                 .padding()

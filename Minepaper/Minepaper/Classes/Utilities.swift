@@ -70,4 +70,11 @@ struct Utilities {
         
         return output!
     }
+    
+    static func downloadImageFromServer(imageName: String) throws -> Image {
+        
+        let uiImage: UIImage = try downloadImageFromServer(imageName: imageName)
+        let output = Image(uiImage: uiImage)
+        return output
+    }
 }
