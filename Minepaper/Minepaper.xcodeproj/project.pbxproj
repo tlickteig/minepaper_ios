@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C0045FA2ABBBD7A00749299 /* MinepaperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0045F92ABBBD7A00749299 /* MinepaperApp.swift */; };
-		7C0045FC2ABBBD7A00749299 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0045FB2ABBBD7A00749299 /* ContentView.swift */; };
+		7C0045FC2ABBBD7A00749299 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0045FB2ABBBD7A00749299 /* MainView.swift */; };
 		7C0045FE2ABBBD7B00749299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C0045FD2ABBBD7B00749299 /* Assets.xcassets */; };
 		7C0046012ABBBD7B00749299 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C0046002ABBBD7B00749299 /* Preview Assets.xcassets */; };
 		7C00460B2ABBBD7B00749299 /* MinepaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00460A2ABBBD7B00749299 /* MinepaperTests.swift */; };
@@ -20,7 +20,7 @@
 		7C00462B2ABBC61E00749299 /* UIObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462A2ABBC61E00749299 /* UIObjects.swift */; };
 		7C00462E2ABD090400749299 /* AsyncDownSamplingImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C00462D2ABD090400749299 /* AsyncDownSamplingImage */; };
 		7C0046302AC0995C00749299 /* WallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462F2AC0995C00749299 /* WallpaperView.swift */; };
-		7C0046332AC12B1400749299 /* ImageShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046322AC12B1400749299 /* ImageShareView.swift */; };
+		7C0046352AC3A1C400749299 /* WallpaperLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046342AC3A1C400749299 /* WallpaperLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		7C0045F62ABBBD7A00749299 /* Minepaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minepaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0045F92ABBBD7A00749299 /* MinepaperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinepaperApp.swift; sourceTree = "<group>"; };
-		7C0045FB2ABBBD7A00749299 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7C0045FB2ABBBD7A00749299 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7C0045FD2ABBBD7B00749299 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C0046002ABBBD7B00749299 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C0046062ABBBD7B00749299 /* MinepaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinepaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +56,7 @@
 		7C0046282ABBC39A00749299 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7C00462A2ABBC61E00749299 /* UIObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjects.swift; sourceTree = "<group>"; };
 		7C00462F2AC0995C00749299 /* WallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperView.swift; sourceTree = "<group>"; };
-		7C0046322AC12B1400749299 /* ImageShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageShareView.swift; sourceTree = "<group>"; };
+		7C0046342AC3A1C400749299 /* WallpaperLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +111,8 @@
 				7C0046312AC12AFA00749299 /* Views */,
 				7C0046232ABBC28900749299 /* Classes */,
 				7C0045F92ABBBD7A00749299 /* MinepaperApp.swift */,
-				7C0045FB2ABBBD7A00749299 /* ContentView.swift */,
 				7C0045FD2ABBBD7B00749299 /* Assets.xcassets */,
 				7C0045FF2ABBBD7B00749299 /* Preview Content */,
-				7C00462F2AC0995C00749299 /* WallpaperView.swift */,
 			);
 			path = Minepaper;
 			sourceTree = "<group>";
@@ -158,7 +156,9 @@
 		7C0046312AC12AFA00749299 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7C0046322AC12B1400749299 /* ImageShareView.swift */,
+				7C0045FB2ABBBD7A00749299 /* MainView.swift */,
+				7C00462F2AC0995C00749299 /* WallpaperView.swift */,
+				7C0046342AC3A1C400749299 /* WallpaperLink.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,11 +302,11 @@
 				7C00462B2ABBC61E00749299 /* UIObjects.swift in Sources */,
 				7C0046302AC0995C00749299 /* WallpaperView.swift in Sources */,
 				7C0046252ABBC2A100749299 /* Utilities.swift in Sources */,
-				7C0045FC2ABBBD7A00749299 /* ContentView.swift in Sources */,
+				7C0045FC2ABBBD7A00749299 /* MainView.swift in Sources */,
+				7C0046352AC3A1C400749299 /* WallpaperLink.swift in Sources */,
 				7C0046292ABBC39A00749299 /* Enums.swift in Sources */,
 				7C0045FA2ABBBD7A00749299 /* MinepaperApp.swift in Sources */,
 				7C0046272ABBC34800749299 /* Constants.swift in Sources */,
-				7C0046332AC12B1400749299 /* ImageShareView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

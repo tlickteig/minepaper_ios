@@ -8,7 +8,7 @@
 import SwiftUI
 import AsyncDownSamplingImage
 
-struct ContentView: View {
+struct MainView: View {
     
     @State var images = [String]()
     @State var loadedImages = [String]()
@@ -97,62 +97,4 @@ struct ContentView: View {
             }
         }
     }
-}
-
-struct WallpaperLink: View {
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State var isLoading = true
-    @State var wallpaperOption: WallpaperOption?
-    private var wallpaperName: String
-    
-    init(imageName: String) {
-        wallpaperName = imageName
-    }
-    
-    var body: some View {
-        VStack {
-            if isLoading {
-                VStack {
-                    ProgressView()
-                    Text("Loading...")
-                }
-                .frame(maxWidth: .infinity, alignment: .center)
-            }
-            else {
-                VStack {
-                    WallpaperView(image: wallpaperOption!)
-                }
-            }
-        }
-        .task {
-            DispatchQueue.global(qos: .userInitiated).async {
-                do {
-                    defer {
-                        isLoading = false
-                    }
-                    
-                    let image = try Utilities.downloadImageFromServer(imageName: wallpaperName)
-                    wallpaperOption = WallpaperOption(imageName: wallpaperName, uiImage: image)
-                }
-                catch {
-                    
-                }
-            }
-        }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: backButton)
-    }
-    
-    //Heavily based off of https://stackoverflow.com/questions/56571349/custom-back-button-for-navigationviews-navigation-bar-in-swiftui
-    var backButton : some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "arrow.left") // set image here
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.accentColor)
-                    Text("Go Back")
-            }
-        }
 }
