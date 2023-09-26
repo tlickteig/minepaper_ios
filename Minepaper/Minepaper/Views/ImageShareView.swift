@@ -10,10 +10,10 @@ import SwiftUI
 
 struct ImageShareView: UIViewControllerRepresentable {
     
-    var activityItems: [UIImage]
+    var image: UIImage
     
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        let controller = UIActivityViewController(activityItems: [image, self], applicationActivities: nil)
         return controller
     }
     

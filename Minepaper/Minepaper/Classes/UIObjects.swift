@@ -6,11 +6,29 @@
 //
 
 import Foundation
+import SwiftUI
 
-class WallpaperOption: Identifiable {
+class WallpaperOption: ObservableObject {
     
-    init(imageName: String) {
+    init(imageName: String, uiImage: UIImage) {
         _imageName = imageName
+        _uiImage = uiImage
+    }
+    
+    var image: Image {
+        get {
+            return Image(uiImage: uiImage)
+        }
+    }
+    
+    private var _uiImage: UIImage = UIImage()
+    var uiImage: UIImage {
+        set {
+            _uiImage = newValue
+        }
+        get {
+            return _uiImage
+        }
     }
     
     private var _imageName: String = ""
