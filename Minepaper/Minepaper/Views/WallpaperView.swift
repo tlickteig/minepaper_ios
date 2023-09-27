@@ -10,28 +10,37 @@ import SwiftUI
 struct WallpaperView: View {
     
     var wallpaperOption: WallpaperOption
-    
     var body: some View {
         VStack {
             NavigationStack {
                 ScrollView {
                     VStack {
-                        Spacer()
-                        Image(uiImage: wallpaperOption.uiImage)
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(10)
-                            .padding()
+                        if UIDevice.current.userInterfaceIdiom == .phone {
+                            Image(uiImage: wallpaperOption.uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(10)
+                                .padding()
+                        }
+                        else {
+                            Image(uiImage: wallpaperOption.uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(10)
+                                .padding()
+                                .frame(width: 750)
+                        }
+                        
                         Spacer()
                         
-                        if UIDevice.current.userInterfaceIdiom == .pad {
+                        if UIDevice.current.userInterfaceIdiom == .phone {
+                            Buttons(wallpaperOption: wallpaperOption)
+                        }
+                        else {
                             HStack {
                                 Spacer()
                                 Buttons(wallpaperOption: wallpaperOption)
                             }
-                        }
-                        else {
-                            Buttons(wallpaperOption: wallpaperOption)
                         }
                     }
                 }

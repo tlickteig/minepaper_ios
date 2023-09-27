@@ -59,6 +59,7 @@ struct MainView: View {
                 .navigationTitle("Minepaper")
                 .padding()
             }
+            .navigationViewStyle(DoubleColumnNavigationViewStyle())
             .task {
                 DispatchQueue.global(qos: .userInitiated).async {
                     do {
