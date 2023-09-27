@@ -9,17 +9,14 @@ import SwiftUI
 
 struct WallpaperView: View {
     
-    private var wallpaperOption: WallpaperOption
-    
-    init(image: WallpaperOption) {
-        wallpaperOption = image
-    }
+    var wallpaperOption: WallpaperOption
     
     var body: some View {
         VStack {
-            NavigationView {
+            NavigationStack {
                 ScrollView {
                     VStack {
+                        Spacer()
                         Image(uiImage: wallpaperOption.uiImage)
                             .resizable()
                             .scaledToFit()
@@ -27,43 +24,60 @@ struct WallpaperView: View {
                             .padding()
                         Spacer()
                         
-                        Button {
-                            UIImageWriteToSavedPhotosAlbum(wallpaperOption.uiImage, nil, nil, nil)
-                        } label: {
-                            Label("Download Wallpaper", systemImage: "square.and.arrow.down")
-                                .padding()
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .padding()
-                        
-                        ShareLink(
-                            item: wallpaperOption.image,
-                            preview: SharePreview("Share Image", image: wallpaperOption.image)
-                        ) {
-                            Label("Share Wallpaper", systemImage: "square.and.arrow.up")
-                                .padding()
-                        }
-                        .buttonStyle(.bordered)
-                        .padding()
-                        
-                        Button {
-                            if let url = URL(string: wallpaperOption.fullImageUrl), UIApplication.shared.canOpenURL(url) {
-                                UIApplication.shared.open(url)
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            HStack {
+                                Spacer()
+                                Buttons(wallpaperOption: wallpaperOption)
                             }
-                            else {
-                                
-                            }
-                        } label: {
-                            Label("Open in Browser", systemImage: "globe")
-                                .padding()
                         }
-                        .buttonStyle(.bordered)
-                        .padding()
-                        
-                        Spacer()
+                        else {
+                            Buttons(wallpaperOption: wallpaperOption)
+                        }
                     }
                 }
             }
         }
+    }
+}
+
+struct Buttons: View {
+    
+    var wallpaperOption: WallpaperOption
+    
+    var body: some View {
+        Button {
+            UIImageWriteToSavedPhotosAlbum(wallpaperOption.uiImage, nil, nil, nil)
+        } label: {
+            Label("Download Wallpaper", systemImage: "square.and.arrow.down")
+                .padding()
+        }
+        .buttonStyle(.borderedProminent)
+        .padding()
+        
+        ShareLink(
+            item: wallpaperOption.image,
+            preview: SharePreview("Share Image", image: wallpaperOption.image)
+        ) {
+            Label("Share Wallpaper", systemImage: "square.and.arrow.up")
+                .padding()
+        }
+        .buttonStyle(.bordered)
+        .padding()
+        
+        Button {
+            if let url = URL(string: wallpaperOption.fullImageUrl), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+            else {
+                
+            }
+        } label: {
+            Label("Open in Browser", systemImage: "globe")
+                .padding()
+        }
+        .buttonStyle(.bordered)
+        .padding()
+        
+        Spacer()
     }
 }

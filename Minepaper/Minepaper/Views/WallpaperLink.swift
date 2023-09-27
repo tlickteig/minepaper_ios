@@ -10,6 +10,7 @@ import SwiftUI
 struct WallpaperLink: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var orientation = UIDevice.current.orientation
     @State var isLoading = true
     @State var wallpaperOption: WallpaperOption?
     private var wallpaperName: String
@@ -29,7 +30,7 @@ struct WallpaperLink: View {
             }
             else {
                 VStack {
-                    WallpaperView(image: wallpaperOption!)
+                    WallpaperView(wallpaperOption: wallpaperOption!)
                 }
             }
         }
@@ -54,13 +55,23 @@ struct WallpaperLink: View {
     
     //Heavily based off of https://stackoverflow.com/questions/56571349/custom-back-button-for-navigationviews-navigation-bar-in-swiftui
     var backButton : some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "arrow.left") // set image here
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(.accentColor)
+        VStack {
+            if shouldBackButtonBeVisible() {
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "arrow.left") // set image here
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.accentColor)
                     Text("Go Back")
+                }
             }
         }
+        .detectOrientation($orientation)
+    }
+    
+    func shouldBackButtonBeVisible() -> Bool {
+        let isIpad = UIDevice.current.userInterfaceIdiom == .pad
+        return !isIpad || (orientation.isPortrait || orientation.isFlat)
+    }
 }

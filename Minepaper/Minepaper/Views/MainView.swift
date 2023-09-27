@@ -19,33 +19,31 @@ struct MainView: View {
         VStack {
             NavigationView {
                 VStack {
-                    if !isLoading {
-                        ScrollView {
-                            LazyVStack {
-                                ForEach(loadedImages, id: \.self) { image in
-                                    Spacer()
-                                    let url = "\(Constants.remoteImagesFolder)/\(image)"
-                                    NavigationLink(destination: WallpaperLink(imageName: image)) {
-                                        AsyncDownSamplingImage(url: URL(string: url), downsampleSize: size
-                                        ) { image in image
-                                                .resizable()
-                                                .scaledToFit()
-                                                .padding(1)
-                                                .cornerRadius(15)
-                                        } fail: { error in
-                                            Text("Error loading image")
-                                        }
-                                        .onAppear {
-                                            if image == loadedImages.last {
-                                                loadMoreImages()
-                                            }
-                                        }
-                                        .cornerRadius(15)
-                                        .frame(height: 180)
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(loadedImages, id: \.self) { image in
+                                Spacer()
+                                let url = "\(Constants.remoteImagesFolder)/\(image)"
+                                NavigationLink(destination: WallpaperLink(imageName: image)) {
+                                    AsyncDownSamplingImage(url: URL(string: url), downsampleSize: size
+                                    ) { image in image
+                                            .resizable()
+                                            .scaledToFit()
+                                            .padding(1)
+                                            .cornerRadius(15)
+                                    } fail: { error in
+                                        Text("Error loading image")
                                     }
-                                    .frame(width: 1000)
-                                    Spacer()
+                                    .onAppear {
+                                        if image == loadedImages.last {
+                                            loadMoreImages()
+                                        }
+                                    }
+                                    .cornerRadius(15)
+                                    .frame(height: 180)
                                 }
+                                .frame(width: 1000)
+                                Spacer()
                             }
                         }
                     }
