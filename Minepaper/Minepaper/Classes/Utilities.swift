@@ -10,6 +10,19 @@ import SwiftUI
 
 struct Utilities {
     
+    static func returnVersionName() -> String {
+        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    }
+    
+    static func openAppSettings() {
+        if let bundleIdentifier = Bundle.main.bundleIdentifier,
+           let settingsURL = URL(string: UIApplication.openSettingsURLString + bundleIdentifier) {
+            if UIApplication.shared.canOpenURL(settingsURL) {
+                UIApplication.shared.open(settingsURL)
+            }
+        }
+    }
+    
     static func getImageListFromServer() throws -> [String] {
         
         var output = [String]()

@@ -24,6 +24,7 @@ struct WallpaperLink: View {
                 VStack {
                     ProgressView()
                     Text("Loading...")
+                        .font(.custom(MinecraftFonts.Regular, size: 20))
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
             }
@@ -59,10 +60,10 @@ struct WallpaperLink: View {
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
-                    Image(systemName: "arrow.left") // set image here
+                    Image(systemName: "arrow.left")
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(.accentColor)
-                    Text("Go Back")
+                    Text("Go Back").font(.custom(MinecraftFonts.Regular, size: 20))
                 }
             }
         }

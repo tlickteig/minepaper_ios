@@ -52,11 +52,25 @@ struct MainView: View {
                         VStack {
                             ProgressView()
                             Text("Getting images...")
+                                .font(.custom(MinecraftFonts.Regular, size: 20))
                         }
                         .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
-                .navigationTitle("Minepaper")
+                .navigationBarTitleDisplayMode(.automatic)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Image("logo")
+                                .resizable()
+                                .scaledToFit()
+                            Text("Minepaper").font(.custom(MinecraftFonts.Regular, size: 20))
+                            Text("v\(Utilities.returnVersionName())")
+                                .foregroundStyle(.gray)
+                                .font(.custom(MinecraftFonts.Regular, size: 20))
+                        }
+                    }
+                }
                 .padding()
             }
             .navigationViewStyle(DoubleColumnNavigationViewStyle())

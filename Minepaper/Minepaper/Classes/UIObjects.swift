@@ -8,6 +8,31 @@
 import Foundation
 import SwiftUI
 
+struct TabletPhoneStack<Content: View>: View {
+    
+    var horizontalAlignment = HorizontalAlignment.center
+    var verticalAlignment = VerticalAlignment.center
+    var spacing: CGFloat?
+    @ViewBuilder var content: () -> Content
+    
+    var body: some View {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            VStack(
+                alignment: horizontalAlignment,
+                spacing: spacing,
+                content: content
+            )
+        }
+        else {
+            HStack(
+                alignment: verticalAlignment,
+                spacing: spacing,
+                content: content
+            )
+        }
+    }
+}
+
 class WallpaperOption: ObservableObject {
     
     init(imageName: String, uiImage: UIImage) {
