@@ -21,6 +21,11 @@
 		7C00462E2ABD090400749299 /* AsyncDownSamplingImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C00462D2ABD090400749299 /* AsyncDownSamplingImage */; };
 		7C0046302AC0995C00749299 /* WallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00462F2AC0995C00749299 /* WallpaperView.swift */; };
 		7C0046352AC3A1C400749299 /* WallpaperLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0046342AC3A1C400749299 /* WallpaperLink.swift */; };
+		7C0046382AC5B07E00749299 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0046372AC5B07E00749299 /* AlertToast */; };
+		7C1E4FFD2AC641D9002D8B2A /* minecraft_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C1E4FF92AC641D9002D8B2A /* minecraft_regular.ttf */; };
+		7C1E4FFE2AC641D9002D8B2A /* minecraft_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C1E4FFA2AC641D9002D8B2A /* minecraft_bold.ttf */; };
+		7C1E4FFF2AC641D9002D8B2A /* minecraft_italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C1E4FFB2AC641D9002D8B2A /* minecraft_italic.ttf */; };
+		7C1E50002AC641D9002D8B2A /* minecraft_bold_italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C1E4FFC2AC641D9002D8B2A /* minecraft_bold_italic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,11 @@
 		7C00462A2ABBC61E00749299 /* UIObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjects.swift; sourceTree = "<group>"; };
 		7C00462F2AC0995C00749299 /* WallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperView.swift; sourceTree = "<group>"; };
 		7C0046342AC3A1C400749299 /* WallpaperLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperLink.swift; sourceTree = "<group>"; };
+		7C1E4FF82AC63FB6002D8B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7C1E4FF92AC641D9002D8B2A /* minecraft_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = minecraft_regular.ttf; sourceTree = "<group>"; };
+		7C1E4FFA2AC641D9002D8B2A /* minecraft_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = minecraft_bold.ttf; sourceTree = "<group>"; };
+		7C1E4FFB2AC641D9002D8B2A /* minecraft_italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = minecraft_italic.ttf; sourceTree = "<group>"; };
+		7C1E4FFC2AC641D9002D8B2A /* minecraft_bold_italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = minecraft_bold_italic.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C00462E2ABD090400749299 /* AsyncDownSamplingImage in Frameworks */,
+				7C0046382AC5B07E00749299 /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +119,8 @@
 		7C0045F82ABBBD7A00749299 /* Minepaper */ = {
 			isa = PBXGroup;
 			children = (
+				7C1E4FF82AC63FB6002D8B2A /* Info.plist */,
+				7C1E4FEF2AC63F28002D8B2A /* Fonts */,
 				7C0046312AC12AFA00749299 /* Views */,
 				7C0046232ABBC28900749299 /* Classes */,
 				7C0045F92ABBBD7A00749299 /* MinepaperApp.swift */,
@@ -163,6 +176,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7C1E4FEF2AC63F28002D8B2A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7C1E4FFC2AC641D9002D8B2A /* minecraft_bold_italic.ttf */,
+				7C1E4FFA2AC641D9002D8B2A /* minecraft_bold.ttf */,
+				7C1E4FFB2AC641D9002D8B2A /* minecraft_italic.ttf */,
+				7C1E4FF92AC641D9002D8B2A /* minecraft_regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,6 +205,7 @@
 			name = Minepaper;
 			packageProductDependencies = (
 				7C00462D2ABD090400749299 /* AsyncDownSamplingImage */,
+				7C0046372AC5B07E00749299 /* AlertToast */,
 			);
 			productName = Minepaper;
 			productReference = 7C0045F62ABBBD7A00749299 /* Minepaper.app */;
@@ -256,6 +281,7 @@
 			mainGroup = 7C0045ED2ABBBD7A00749299;
 			packageReferences = (
 				7C00462C2ABD090400749299 /* XCRemoteSwiftPackageReference "AsyncDownSamplingImage" */,
+				7C0046362AC5B07E00749299 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 7C0045F72ABBBD7A00749299 /* Products */;
 			projectDirPath = "";
@@ -273,8 +299,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C1E4FFD2AC641D9002D8B2A /* minecraft_regular.ttf in Resources */,
+				7C1E50002AC641D9002D8B2A /* minecraft_bold_italic.ttf in Resources */,
 				7C0046012ABBBD7B00749299 /* Preview Assets.xcassets in Resources */,
 				7C0045FE2ABBBD7B00749299 /* Assets.xcassets in Resources */,
+				7C1E4FFE2AC641D9002D8B2A /* minecraft_bold.ttf in Resources */,
+				7C1E4FFF2AC641D9002D8B2A /* minecraft_italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +503,7 @@
 				DEVELOPMENT_TEAM = 2YP3HAP3F2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Minepaper/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Minepaper needs to be able to save wallpapers to your camera roll";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -506,6 +537,7 @@
 				DEVELOPMENT_TEAM = 2YP3HAP3F2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Minepaper/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Minepaper needs to be able to save wallpapers to your camera roll";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -654,6 +686,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
+		7C0046362AC5B07E00749299 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -661,6 +701,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7C00462C2ABD090400749299 /* XCRemoteSwiftPackageReference "AsyncDownSamplingImage" */;
 			productName = AsyncDownSamplingImage;
+		};
+		7C0046372AC5B07E00749299 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C0046362AC5B07E00749299 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
