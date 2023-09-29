@@ -104,7 +104,8 @@ struct WallpaperView: View {
             }
         }
         .toast(isPresenting: $showingToast) {
-            AlertToast(type: .regular, title: toastMessage)
+            AlertToast(type: .regular, title: toastMessage, 
+                       style: AlertToast.AlertStyle.style(titleFont: .custom(MinecraftFonts.Regular, size: 20)))
         }
         .alert(isPresented: $showingAlert) {
             alert

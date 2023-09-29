@@ -13,6 +13,7 @@ struct MainView: View {
     @State var images = [String]()
     @State var loadedImages = [String]()
     @State var isLoading = true
+    @State var hasErrorOccured = false
     @State private var size: CGSize = .init(width: 640, height: 360)
     
     var body: some View {
@@ -32,10 +33,12 @@ struct MainView: View {
                                             .padding(1)
                                             .cornerRadius(15)
                                     } fail: { error in
-                                        Text("Error loading image")
+                                        ExecuteCode {
+                                            hasErrorOccured = true
+                                        }
                                     }
                                     .onAppear {
-                                        if image == loadedImages.last {
+                                        if image == loadedImages.last && !hasErrorOccured {
                                             loadMoreImages()
                                         }
                                     }
@@ -52,9 +55,25 @@ struct MainView: View {
                         VStack {
                             ProgressView()
                             Text("Getting images...")
-                                .font(.custom(MinecraftFonts.Regular, size: 20))
+                                .font(.custom(MinecraftFonts.Regular, size: 15))
                         }
                         .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    
+                    if hasErrorOccured {
+                        VStack {
+                            Image(systemName: "exclamationmark.circle").foregroundStyle(.red)
+                            Text("Sorry, An error occurred")
+                                .font(.custom(MinecraftFonts.Regular, size: 15))
+                            Button("Retry") {
+                                hasErrorOccured = false
+                                DispatchQueue.global(qos: .userInitiated).async {
+                                    initialize()
+                                }
+                            }
+                            .buttonStyle(.borderless)
+                            .font(.custom(MinecraftFonts.Regular, size: 15))
+                        }
                     }
                 }
                 .navigationBarTitleDisplayMode(.automatic)
@@ -64,6 +83,7 @@ struct MainView: View {
                             Image("logo")
                                 .resizable()
                                 .scaledToFit()
+                                .frame(width: 30)
                             Text("Minepaper").font(.custom(MinecraftFonts.Regular, size: 20))
                             Text("v\(Utilities.returnVersionName())")
                                 .foregroundStyle(.gray)
@@ -76,19 +96,24 @@ struct MainView: View {
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
             .task {
                 DispatchQueue.global(qos: .userInitiated).async {
-                    do {
-                        defer {
-                            isLoading = false
-                        }
-                        
-                        images = try Utilities.getImageListFromServer()
-                        loadMoreImages()
-                    }
-                    catch {
-                        
-                    }
+                    initialize()
                 }
             }
+        }
+    }
+    
+    private func initialize() {
+        do {
+            defer {
+                isLoading = false
+            }
+            
+            images = try Utilities.getImageListFromServer()
+            //throw NetworkError.GeneralError
+            loadMoreImages()
+        }
+        catch {
+            hasErrorOccured = true
         }
     }
     
