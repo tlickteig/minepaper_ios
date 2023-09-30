@@ -11,6 +11,7 @@ struct WallpaperLink: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isLoading = true
+    @State var hasErrorHappened = false
     @State var wallpaperOption: WallpaperOption?
     private var wallpaperName: String
     
@@ -28,29 +29,52 @@ struct WallpaperLink: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
             }
+            else if hasErrorHappened {
+                VStack {
+                    Image(systemName: "exclamationmark.circle").foregroundStyle(.red)
+                    Text("Sorry, An error occurred")
+                        .font(.custom(MinecraftFonts.Regular, size: 15))
+                    Button("Retry") {
+                        hasErrorHappened = false
+                        isLoading = true
+                        
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            initialize()
+                        }
+                    }
+                    .buttonStyle(.borderless)
+                    .font(.custom(MinecraftFonts.Regular, size: 15))
+                }
+            }
             else {
                 VStack {
-                    WallpaperView(wallpaperOption: wallpaperOption!)
+                    if wallpaperOption != nil {
+                        WallpaperView(wallpaperOption: wallpaperOption!)
+                    }
                 }
             }
         }
         .task {
             DispatchQueue.global(qos: .userInitiated).async {
-                do {
-                    defer {
-                        isLoading = false
-                    }
-                    
-                    let image = try Utilities.downloadImageFromServer(imageName: wallpaperName)
-                    wallpaperOption = WallpaperOption(imageName: wallpaperName, uiImage: image)
-                }
-                catch {
-                    
-                }
+                initialize()
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: backButton)
+    }
+    
+    func initialize() {
+        do {
+            defer {
+                isLoading = false
+            }
+            
+            let image = try Utilities.downloadImageFromServer(imageName: wallpaperName)
+            wallpaperOption = WallpaperOption(imageName: wallpaperName, uiImage: image)
+        }
+        catch {
+            hasErrorHappened = true
+        }
     }
     
     //Heavily based off of https://stackoverflow.com/questions/56571349/custom-back-button-for-navigationviews-navigation-bar-in-swiftui

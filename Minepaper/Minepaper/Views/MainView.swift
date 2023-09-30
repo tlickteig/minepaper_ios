@@ -109,7 +109,6 @@ struct MainView: View {
             }
             
             images = try Utilities.getImageListFromServer()
-            //throw NetworkError.GeneralError
             loadMoreImages()
         }
         catch {
