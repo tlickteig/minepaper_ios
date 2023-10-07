@@ -61,6 +61,7 @@ struct WallpaperLink: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: backButton)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func initialize() {
