@@ -15,6 +15,8 @@ struct MainView: View {
     @State var isLoading = true
     @State var hasErrorOccured = false
     @State private var size: CGSize = .init(width: 640, height: 360)
+    //@State private var columnVisibility = NavigationSplitViewVisibility.detailOnly
+    //@StateObject private var selectedImageIpad: IpadImageSelector
     
     var body: some View {
         VStack {
@@ -52,46 +54,31 @@ struct MainView: View {
                     }
                     
                     if isLoading {
-                        VStack {
-                            ProgressView()
-                            Text("Getting images...")
-                                .font(.custom(MinecraftFonts.Regular, size: 15))
-                        }
-                        .frame(maxWidth: .infinity, alignment: .center)
+                        loadingView
                     }
                     
                     if hasErrorOccured {
-                        VStack {
-                            Image(systemName: "exclamationmark.circle").foregroundStyle(.red)
-                            Text("Sorry, An error occurred")
-                                .font(.custom(MinecraftFonts.Regular, size: 15))
-                            Button("Retry") {
-                                hasErrorOccured = false
-                                DispatchQueue.global(qos: .userInitiated).async {
-                                    initialize()
-                                }
-                            }
-                            .buttonStyle(.borderless)
-                            .font(.custom(MinecraftFonts.Regular, size: 15))
-                        }
+                        errorOccurredView
                     }
                 }
                 .navigationBarTitleDisplayMode(.automatic)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        HStack {
-                            Image("logo")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 30)
-                            Text("Minepaper").font(.custom(MinecraftFonts.Regular, size: 20))
-                            Text("v\(Utilities.returnVersionName())")
-                                .foregroundStyle(.gray)
-                                .font(.custom(MinecraftFonts.Regular, size: 20))
-                        }
+                        toolbarView
                     }
                 }
                 .padding()
+                
+                VStack {
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 180)
+                    Text("Welcome to Minepaper!")
+                        .font(.custom(MinecraftFonts.Regular, size: 60))
+                    Text("Swipe from the left and select an image to view")
+                        .font(.custom(MinecraftFonts.Regular, size: 30))
+                }
             }
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
             .task {
@@ -99,6 +86,44 @@ struct MainView: View {
                     initialize()
                 }
             }
+        }
+    }
+    
+    var loadingView: some View {
+        VStack {
+            ProgressView()
+            Text("Getting images...")
+                .font(.custom(MinecraftFonts.Regular, size: 15))
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+    }
+    
+    var errorOccurredView: some View {
+        VStack {
+            Image(systemName: "exclamationmark.circle").foregroundStyle(.red)
+            Text("Sorry, An error occurred")
+                .font(.custom(MinecraftFonts.Regular, size: 15))
+            Button("Retry") {
+                hasErrorOccured = false
+                DispatchQueue.global(qos: .userInitiated).async {
+                    initialize()
+                }
+            }
+            .buttonStyle(.borderless)
+            .font(.custom(MinecraftFonts.Regular, size: 15))
+        }
+    }
+    
+    var toolbarView: some View {
+        HStack {
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30)
+            Text("Minepaper").font(.custom(MinecraftFonts.Regular, size: 20))
+            Text("v\(Utilities.returnVersionName())")
+                .foregroundStyle(.gray)
+                .font(.custom(MinecraftFonts.Regular, size: 20))
         }
     }
     

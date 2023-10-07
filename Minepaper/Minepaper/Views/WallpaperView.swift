@@ -23,22 +23,11 @@ struct WallpaperView: View {
             NavigationStack {
                 ScrollView {
                     VStack {
-                        if UIDevice.current.userInterfaceIdiom == .phone {
-                            Image(uiImage: wallpaperOption.uiImage)
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(10)
-                                .padding()
-                        }
-                        else {
-                            Image(uiImage: wallpaperOption.uiImage)
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(10)
-                                .padding()
-                                .frame(width: 750)
-                        }
-                        
+                        Image(uiImage: wallpaperOption.uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(10)
+                            .padding()
                         Spacer()
                         
                         TabletPhoneStack {

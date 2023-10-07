@@ -34,11 +34,19 @@ struct TabletPhoneStack<Content: View>: View {
             )
         }
         else {
-            HStack(
-                alignment: verticalAlignment,
-                spacing: spacing,
-                content: content
-            )
+            ViewThatFits {
+                HStack(
+                    alignment: verticalAlignment,
+                    spacing: spacing,
+                    content: content
+                )
+                
+                VStack(
+                    alignment: horizontalAlignment,
+                    spacing: spacing,
+                    content: content
+                )
+            }
         }
     }
 }
